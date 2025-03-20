@@ -1,9 +1,13 @@
 import axios from 'axios';
 
 // Base URL for API
-export const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://sgp-6-kpw9.onrender.com' 
-  : 'https://sgp-6-kpw9.onrender.com';
+//export const API_BASE_URL = process.env.NODE_ENV === 'production' 
+  // ? 'https://sgp-6-kpw9.onrender.com' 
+  // : 'https://sgp-6-kpw9.onrender.com';
+export const API_BASE_URL = 'https://sgp-6-kpw9.onrender.com'; // Directly set the backend URL
+
+axios.defaults.baseURL = API_BASE_URL;
+
 
 // Setup axios defaults
 axios.defaults.baseURL = API_BASE_URL;
