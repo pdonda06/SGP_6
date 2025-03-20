@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Base URL for API
 export const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? '' 
+  ? 'https://sgp-6-kpw9.onrender.com' 
   : 'https://sgp-6-kpw9.onrender.com';
 
 // Setup axios defaults
