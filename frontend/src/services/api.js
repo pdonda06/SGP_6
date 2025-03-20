@@ -3,7 +3,7 @@ import axios from 'axios';
 // Base URL for API
 export const API_BASE_URL = process.env.NODE_ENV === 'production' 
   ? '' 
-  : 'http://localhost:5001';
+  : 'https://sgp-6-kpw9.onrender.com';
 
 // Setup axios defaults
 axios.defaults.baseURL = API_BASE_URL;
