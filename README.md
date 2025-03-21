@@ -226,9 +226,6 @@
       <li><strong>Offline-First Architecture</strong> - Resilient to network issues</li>
     </ul>
   </div>
-  <div style="flex: 1; text-align: center;">
-    <img src="https://via.placeholder.com/300x600?text=Mobile+View" alt="Mobile View" width="200">
-  </div>
 </div>
 
 <hr>
@@ -267,8 +264,6 @@ medicare/
 ## 🛠️ Installation
 
 
-<details>
-
 #### Backend Setup
 ```bash
 # Navigate to backend directory
@@ -303,7 +298,7 @@ npm start
 # From the backend directory
 npm run dev
 ```
-</details>
+
 
 <hr>
 
