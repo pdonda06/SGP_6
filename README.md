@@ -293,13 +293,6 @@ npm install
 npm start
 ```
 
-#### Run both concurrently
-```bash
-# From the backend directory
-npm run dev
-```
-
-
 <hr>
 
 <a id="api"></a>
