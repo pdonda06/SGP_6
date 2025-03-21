@@ -12,11 +12,10 @@
   [![Material UI](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white)](https://mui.com/)
   [![PWA](https://img.shields.io/badge/PWA-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
   
-  <a href="#demo">View Demo</a> •
+  <a href="https://ad75-2401-4900-7c13-b64f-2913-923d-db65-e58f.ngrok-free.app/">View Demo</a> •
   <a href="#features">Features</a> •
   <a href="#installation">Installation</a> •
   <a href="#api">API</a> •
-  <a href="#contributing">Contributing</a>
   
   <br/>
   
@@ -104,7 +103,7 @@
   - Reporting relationships
 </details>
 
-<details open>
+<details>
 <summary><h3>📝 Health Data Reporting</h3></summary>
 
 - **Intelligent Forms**
@@ -129,7 +128,7 @@
   - Notification system
 </details>
 
-<details open>
+<details>
 <summary><h3>📊 Visualization & Analytics</h3></summary>
 
 - **Executive Dashboard**
