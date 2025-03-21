@@ -364,7 +364,8 @@ npm start
 | `DELETE` | `/health-data/:id` | Delete report | Yes (Admin) |
 
 <hr>
-
+</p>
+<hr>
 <div align="center">
   <p>Made with ❤️ by Team</p>
 </div>
