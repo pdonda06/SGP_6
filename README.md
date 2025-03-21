@@ -1,4 +1,4 @@
-# <div align="center">🏥 MediCare</div>
+# <div align="center">🏥 MediChain</div>
 
 <div align="center">
   <h3>A Modern Health Data Management System</h3>
@@ -20,14 +20,13 @@
   
   <br/>
   
-  <img src="https://via.placeholder.com/1200x600?text=MediCare+Dashboard" alt="MediCare Dashboard" width="80%">
 </div>
 
 <br/>
 
 ## ✨ Overview
 
-**MediCare** is a comprehensive health data management platform that seamlessly connects healthcare facilities across regions. Built on the robust MERN stack, it delivers a fluid experience for collecting, analyzing, and managing critical health data through a sophisticated hierarchical workflow.
+**MediChain** is a comprehensive health data management platform that seamlessly connects healthcare facilities across regions. Built on the robust MERN stack, it delivers a fluid experience for collecting, analyzing, and managing critical health data through a sophisticated hierarchical workflow.
 
 <table>
   <tr>
@@ -237,45 +236,6 @@
 <a id="structure"></a>
 ## 🏗️ Project Architecture
 
-```mermaid
-graph TD
-    Client[Frontend React App]
-    Server[Backend Express]
-    Database[(MongoDB)]
-    
-    Client --> |HTTP Requests| Server
-    Server --> |Queries| Database
-    Database --> |Results| Server
-    Server --> |JSON Responses| Client
-    
-    subgraph Frontend
-    Components[UI Components]
-    Pages[Pages/Views]
-    Hooks[Custom Hooks]
-    Utils[Utilities]
-    State[Redux Store]
-    
-    Components --> Pages
-    Hooks --> Pages
-    Hooks --> Components
-    Utils --> Components
-    Utils --> Pages
-    State --> Pages
-    State --> Components
-    end
-    
-    subgraph Backend
-    Routes[API Routes]
-    Controllers[Controllers]
-    Models[Mongoose Models]
-    Middleware[Middleware]
-    
-    Routes --> Controllers
-    Controllers --> Models
-    Middleware --> Routes
-    end
-```
-
 <div style="background-color: #f6f8fa; padding: 20px; border-radius: 5px; margin: 20px 0;">
 <h3>Project Structure</h3>
 
@@ -290,14 +250,14 @@ medicare/
 │   └── server.js           # Server entry point
 │
 ├── frontend/               # React frontend
-│   ├── public/             # Public assets and index.html
-│   └── src/
-│       ├── components/     # Reusable UI components
-│       ├── hooks/          # Custom React hooks
-│       ├── pages/          # Main application pages
-│       ├── utils/          # Utility functions
-│       ├── App.js          # Main application component
-│       └── index.js        # Frontend entry point
+    ├── public/             # Public assets and index.html
+    └── src/
+        ├── components/     # Reusable UI components
+        ├── hooks/          # Custom React hooks
+        ├── pages/          # Main application pages
+        ├── utils/          # Utility functions
+        ├── App.js          # Main application component
+        └── index.js        # Frontend entry point
 ```
 </div>
 
@@ -306,35 +266,8 @@ medicare/
 <a id="installation"></a>
 ## 🛠️ Installation
 
-<table>
-<tr>
-<td>
-
-### Prerequisites
-- Node.js (v14+)
-- MongoDB
-- npm or yarn
-
-</td>
-<td>
-
-### Quick Start
-```bash
-# Clone repository
-git clone https://github.com/yourusername/medicare.git
-cd medicare
-
-# Install dependencies & start
-npm run setup
-npm run dev
-```
-
-</td>
-</tr>
-</table>
 
 <details>
-<summary><h3>Detailed Setup Instructions</h3></summary>
 
 #### Backend Setup
 ```bash
@@ -447,49 +380,18 @@ npm run dev
 
 <hr>
 
-<a id="contributing"></a>
-## 👥 Contributing
-
-We welcome contributions from the community! Follow these steps to contribute:
-
-<ol>
-  <li>Fork the repository</li>
-  <li>Create a feature branch: <code>git checkout -b feature/amazing-feature</code></li>
-  <li>Commit your changes: <code>git commit -m 'Add some amazing feature'</code></li>
-  <li>Push to the branch: <code>git push origin feature/amazing-feature</code></li>
-  <li>Open a Pull Request</li>
-</ol>
-
-<p>Please make sure to update tests as appropriate and adhere to the existing coding style.</p>
-
-<hr>
-
 <a id="demo"></a>
 ## 🌐 Live Demo
 
 <p align="center">
   <a href="#demo">
-    <img src="https://via.placeholder.com/800x400?text=MediCare+Live+Demo" alt="Demo Banner" width="80%">
+    <img src="[https://via.placeholder.com/800x400?text=MediCare+Live+Demo](https://ad75-2401-4900-7c13-b64f-2913-923d-db65-e58f.ngrok-free.app/)" alt="Demo Banner" width="80%">
   </a>
-  <br>
-  <em>Coming Soon</em>
+  
 </p>
 
 <hr>
 
 <div align="center">
-  <h3>📄 License</h3>
-  <p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
-  
-  <h3>🙏 Acknowledgements</h3>
-  <p>
-    <a href="https://mui.com/"><img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white" alt="Material UI"></a>
-    <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React"></a>
-    <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js"></a>
-    <a href="https://www.mongodb.com/"><img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"></a>
-    <a href="https://expressjs.com/"><img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express"></a>
-    <a href="https://lucide.dev/"><img src="https://img.shields.io/badge/Lucide-000000?style=for-the-badge&logo=lucide&logoColor=white" alt="Lucide"></a>
-  </p>
-  
-  <p>Made with ❤️ by Your Team</p>
+  <p>Made with ❤️ by Team</p>
 </div>
