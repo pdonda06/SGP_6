@@ -104,7 +104,7 @@
   - Reporting relationships
 </details>
 
-<details>
+<details open>
 <summary><h3>📝 Health Data Reporting</h3></summary>
 
 - **Intelligent Forms**
@@ -129,7 +129,7 @@
   - Notification system
 </details>
 
-<details>
+<details open>
 <summary><h3>📊 Visualization & Analytics</h3></summary>
 
 - **Executive Dashboard**
@@ -148,7 +148,7 @@
   - Scheduled exports
 </details>
 
-<details>
+<details open>
 <summary><h3>📱 Progressive Web App</h3></summary>
 
 - **Offline Capability**
@@ -367,14 +367,6 @@ npm start
 </details>
 
 <hr>
-
-<a id="demo"></a>
-## 🌐 Live Demo
-
-<p align="center">
-  <a href="#demo">
-    <img src="[https://via.placeholder.com/800x400?text=MediCare+Live+Demo](https://ad75-2401-4900-7c13-b64f-2913-923d-db65-e58f.ngrok-free.app/)" alt="Demo Banner" width="80%">
-  </a>
   
 </p>
 
