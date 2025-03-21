@@ -363,12 +363,6 @@ npm start
 | `PUT` | `/health-data/:id` | Update report | Yes |
 | `DELETE` | `/health-data/:id` | Delete report | Yes (Admin) |
 
-</details>
-
-<hr>
-  
-</p>
-
 <hr>
 
 <div align="center">
