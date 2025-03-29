@@ -5,9 +5,17 @@ const {
   getUser,
   createUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  getProfile,
+  updateProfile,
+  updateSettings
 } = require('../controllers/userController');
 const { protect, authorize } = require('../middleware/auth');
+
+// Profile and Settings routes
+router.get('/profile', protect, getProfile);
+router.put('/profile', protect, updateProfile);
+router.put('/settings', protect, updateSettings);
 
 // Get all users and create user
 router

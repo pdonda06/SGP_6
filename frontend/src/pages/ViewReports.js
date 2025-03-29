@@ -578,7 +578,7 @@ function ViewReports() {
                   <TableRow>
                     <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Period</TableCell>
                     {!isMobile && <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Facility</TableCell>}
-                    <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Department</TableCell>
+                    <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Submitted By</TableCell>
                     {!isMobile && !isTablet && <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Submitted</TableCell>}
                     <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Status</TableCell>
                     <TableCell sx={{ color: 'white', fontWeight: 'bold' }} align="center">Actions</TableCell>
@@ -589,7 +589,7 @@ function ViewReports() {
                     <TableRow key={report._id} hover>
                       <TableCell>{getFormattedPeriod(report)}</TableCell>
                       {!isMobile && <TableCell>{report.facility?.name || 'N/A'}</TableCell>}
-                      <TableCell>{report.department?.name || 'N/A'}</TableCell>
+                      <TableCell>{report.submittedBy?.name|| 'N/A'}</TableCell>
                       {!isMobile && !isTablet && <TableCell>{formatDate(report.submittedAt || report.createdAt)}</TableCell>}
                       <TableCell>
                         <Chip 

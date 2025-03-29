@@ -307,4 +307,93 @@ exports.deleteUser = async (req, res) => {
       message: error.message
     });
   }
+};
+
+// @desc    Get user profile
+// @route   GET /api/users/profile
+// @access  Private
+exports.getProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id)
+      .select('-password')
+      .populate('facility', 'name type');
+      
+    res.status(200).json({
+      success: true,
+      data: user
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+// @desc    Update user profile
+// @route   PUT /api/users/profile
+// @access  Private
+exports.updateProfile = async (req, res) => {
+  try {
+    const allowedUpdates = ['name', 'email', 'phone', 'avatar'];
+    const updates = Object.keys(req.body);
+    const isValidOperation = updates.every(update => allowedUpdates.includes(update));
+
+    if (!isValidOperation) {
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid updates'
+      });
+    }
+
+    updates.forEach(update => req.user[update] = req.body[update]);
+
+    if (req.body.password) {
+      const salt = await bcrypt.genSalt(10);
+      req.user.password = await bcrypt.hash(req.body.password, salt);
+    }
+
+    await req.user.save();
+
+    res.status(200).json({
+      success: true,
+      data: req.user
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+// @desc    Update user settings
+// @route   PUT /api/users/settings
+// @access  Private
+exports.updateSettings = async (req, res) => {
+  try {
+    const allowedUpdates = ['notifications', 'theme', 'language'];
+    const updates = Object.keys(req.body);
+    const isValidOperation = updates.every(update => allowedUpdates.includes(update));
+
+    if (!isValidOperation) {
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid updates'
+      });
+    }
+
+    updates.forEach(update => req.user.settings[update] = req.body[update]);
+    await req.user.save();
+
+    res.status(200).json({
+      success: true,
+      data: req.user.settings
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
 }; 

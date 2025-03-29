@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 import healthDataService from '../services/healthDataService';
 
 function ViewReport() {
@@ -10,6 +11,7 @@ function ViewReport() {
   const { user } = useSelector((state) => state.auth);
   const [report, setReport] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isUpdating, setIsUpdating] = useState(false);
 
   useEffect(() => {
     fetchReport();
@@ -27,6 +29,78 @@ function ViewReport() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleStatusUpdate = async (newStatus) => {
+    try {
+      setIsUpdating(true);
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user.token}`
+        }
+      };
+
+      const response = await axios.put(`/api/health-data/${id}`, {
+        status: newStatus,
+        notes: report.notes
+      }, config);
+
+      setReport(response.data.data);
+      toast.success(`Report ${newStatus} successfully`);
+    } catch (error) {
+      console.error('Error updating report status:', error);
+      toast.error(error.response?.data?.message || `Failed to ${newStatus} report`);
+    } finally {
+      setIsUpdating(false);
+    }
+  };
+
+  const renderActionButtons = () => {
+    if (!['super-admin', 'state-admin'].includes(user.role)) {
+      return null;
+    }
+
+    return (
+      <div className="report-actions" style={{ marginTop: '20px', gap: '10px', display: 'flex' }}>
+        {report.status !== 'approved' && (
+          <button
+            className="btn btn-success"
+            onClick={() => handleStatusUpdate('approved')}
+            disabled={isUpdating}
+            style={{
+              backgroundColor: '#4caf50',
+              color: 'white',
+              padding: '8px 16px',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: isUpdating ? 'not-allowed' : 'pointer',
+              opacity: isUpdating ? 0.7 : 1
+            }}
+          >
+            {isUpdating ? 'Approving...' : 'Approve Report'}
+          </button>
+        )}
+        
+        {report.status !== 'rejected' && (
+          <button
+            className="btn btn-danger"
+            onClick={() => handleStatusUpdate('rejected')}
+            disabled={isUpdating}
+            style={{
+              backgroundColor: '#f44336',
+              color: 'white',
+              padding: '8px 16px',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: isUpdating ? 'not-allowed' : 'pointer',
+              opacity: isUpdating ? 0.7 : 1
+            }}
+          >
+            {isUpdating ? 'Rejecting...' : 'Reject Report'}
+          </button>
+        )}
+      </div>
+    );
   };
 
   const getStatusClass = (status) => {
@@ -86,8 +160,8 @@ function ViewReport() {
               <span>{report.facility?.name || 'N/A'}</span>
             </div>
             <div className="info-item">
-              <label>Department</label>
-              <span>{report.department?.name || 'N/A'}</span>
+              <label>Name</label>
+              <span>{report.submittedBy?.name || 'N/A'}</span>
             </div>
             <div className="info-item">
               <label>Reporting Period</label>
@@ -100,6 +174,7 @@ function ViewReport() {
               </span>
             </div>
           </div>
+          {renderActionButtons()}
         </div>
 
         <div className="info-section">
@@ -164,4 +239,4 @@ function ViewReport() {
   );
 }
 
-export default ViewReport; 
+export default ViewReport;

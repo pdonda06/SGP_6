@@ -13,6 +13,8 @@ import AddReport from './pages/AddReport';
 import ViewReports from './pages/ViewReports';
 import ManageDepartments from './pages/ManageDepartments';
 import ManageUsers from './pages/ManageUsers';
+import Profile from './pages/Profile';
+import Settings from './pages/Settings';
 import Header from './components/Header';
 import PrivateRoute from './components/PrivateRoute';
 import ViewReport from './pages/ViewReport';
@@ -250,10 +252,26 @@ function App() {
                     }
                   />
                   <Route
-                    path="/edit-report/:id"
+                    path="/report/:id/edit"
                     element={
                       <PrivateRoute>
                         <EditReport />
+                      </PrivateRoute>
+                    }
+                  />
+                  <Route
+                    path="/profile"
+                    element={
+                      <PrivateRoute>
+                        <Profile />
+                      </PrivateRoute>
+                    }
+                  />
+                  <Route
+                    path="/settings"
+                    element={
+                      <PrivateRoute>
+                        <Settings />
                       </PrivateRoute>
                     }
                   />

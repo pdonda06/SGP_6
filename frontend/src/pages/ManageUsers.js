@@ -1123,7 +1123,7 @@ function ManageUsers() {
                               </>
                             ) : (
                               <Typography variant="body2" color="text.secondary" fontStyle="italic">
-                                {userData.district || userData.state || 'Not assigned'}
+                                {userData.facility?.name || 'Not assigned'}
                               </Typography>
                             )}
                           </Box>

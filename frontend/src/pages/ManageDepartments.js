@@ -258,7 +258,7 @@ function ManageDepartments() {
                           <TableCell sx={{ fontWeight: 500 }}>{facility.name}</TableCell>
                           <TableCell align="right">
                             <Chip 
-                              label={deptCountsByFacility[facility._id] || 0} 
+                              label={deptCountsByFacility[facility._id] || 1} 
                               color={deptCountsByFacility[facility._id] ? 'primary' : 'default'}
                               size="small"
                               sx={{ borderRadius: '8px', fontWeight: 'bold', minWidth: '28px' }}

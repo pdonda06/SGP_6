@@ -79,6 +79,16 @@ function Header() {
     setDrawerOpen(false);
   };
 
+  const handleProfileClick = () => {
+    navigate('/profile');
+    handleCloseUserMenu();
+  };
+
+  const handleSettingsClick = () => {
+    navigate('/settings');
+    handleCloseUserMenu();
+  };
+
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === 'keydown' &&
@@ -468,16 +478,7 @@ function Header() {
             {user ? (
               <>
                 {/* Notifications - desktop & tablet only */}
-                {!isMobile && (
-                  <IconButton 
-                    sx={{ mr: 1.5 }}
-                    aria-label="notifications"
-                  >
-                    <Badge badgeContent={notificationsCount} color="error">
-                      <Bell size={20} />
-                    </Badge>
-                  </IconButton>
-                )}
+                
 
                 {/* User Avatar - desktop & tablet version */}
                 <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center' }}>
@@ -552,61 +553,18 @@ function Header() {
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
                 >
-                  <Box sx={{ px: 2, py: 1, minWidth: 180 }}>
-                    <Typography variant="subtitle1" fontWeight="medium">
-                      {user.name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" gutterBottom>
-                      {user.email}
-                    </Typography>
-                    
-                    <Typography variant="caption" color="primary" sx={{ 
-                      display: 'inline-block',
-                      bgcolor: 'primary.light', 
-                      color: 'primary.contrastText',
-                      px: 1,
-                      py: 0.3,
-                      borderRadius: 1,
-                      fontSize: '0.7rem',
-                      textTransform: 'uppercase',
-                      fontWeight: 'bold'
-                    }}>
-                      {user.role === 'facility_admin' ? 'Facility Admin' : user.role}
-                    </Typography>
-                  </Box>
-                  
-                  <Divider />
-                  
-                  <MenuItem onClick={() => {
-                    handleCloseUserMenu();
-                    navigate('/profile');
-                  }}>
-                    <ListItemIcon>
-                      <User size={18} />
-                    </ListItemIcon>
-                    <Typography variant="body2">Profile</Typography>
+                  <MenuItem onClick={handleProfileClick}>
+                    <User size={18} style={{ marginRight: 8 }} />
+                    Profile
                   </MenuItem>
-                  
-                  <MenuItem onClick={() => {
-                    handleCloseUserMenu();
-                    navigate('/settings');
-                  }}>
-                    <ListItemIcon>
-                      <Settings size={18} />
-                    </ListItemIcon>
-                    <Typography variant="body2">Settings</Typography>
+                  <MenuItem onClick={handleSettingsClick}>
+                    <Settings size={18} style={{ marginRight: 8 }} />
+                    Settings
                   </MenuItem>
-                  
                   <Divider />
-                  
-                  <MenuItem 
-                    onClick={onLogout}
-                    sx={{ color: 'error.main' }}
-                  >
-                    <ListItemIcon sx={{ color: 'error.main' }}>
-                      <LogOut size={18} />
-                    </ListItemIcon>
-                    <Typography variant="body2">Logout</Typography>
+                  <MenuItem onClick={onLogout}>
+                    <LogOut size={18} style={{ marginRight: 8 }} />
+                    Logout
                   </MenuItem>
                 </Menu>
               </>
