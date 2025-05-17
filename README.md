@@ -127,7 +127,6 @@
   - Audit trails
   - Notification system
 </details>
-
 <details>
 <summary><h3>📊 Visualization & Analytics</h3></summary>
 
